@@ -15,16 +15,13 @@
 	</a>
 </p>
 
-<p align="center"><code>LogoScrape</code> scrapes any logo from an url for your Node.js applications.</p>
-
+<p align="center"><code>LogoScrape</code> scrapes the logo from an provided url for your Node.js applications.</p>
 
 ## Installation
-
-## Usage
 ```bash
 $ npm i logo-scraper
 ```
-
+## Usage
 ### NodeJS
 ```js
 const { LogoScrape } = require('logo-scrape');
@@ -39,7 +36,7 @@ const { LogoScrape } = require('logo-scrape');
 
 ### TypeScript
 ```ts
-import { LogoScraper } from 'logo-scrape';
+import { LogoScrape } from 'logo-scrape';
 
 (async () => {
     const url: string = 'http://bpost.be';
@@ -48,7 +45,6 @@ import { LogoScraper } from 'logo-scrape';
     console.log(logo, logos)
 })();
 ```
-
 
 ## API
 The API generated with [TypeDoc](http://typedoc.org/) can be found [here](https://fritzh321.github.io/logo-scrape/).
