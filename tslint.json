@@ -2,7 +2,7 @@
     "extends": ["tslint:latest", "tslint-eslint-rules"],
     "jsRules": {},
     "rules": {
-        "linebreak-style": [true, "CRLF"],
+        "linebreak-style": [true, "LF"],
         "trailing-comma": false,
         "object-literal-sort-keys": false,
         "no-eval": true,
