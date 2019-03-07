@@ -4,3 +4,4 @@ dist
 types
 /examples/*.d.ts
 /examples/*.js
+package-lock.json

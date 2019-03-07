@@ -1,9 +1,9 @@
 # LogoScraper
 [![npm version](https://badge.fury.io/js/logo-scrape.svg)](https://www.npmjs.com/package/logo-scrape)
 
+Scrape the logo of any website.
 <hr>
 
-Scrape the logo of any website.
 ## Getting Started
 ### Installation
 ```bash
@@ -16,8 +16,9 @@ const { LogoScrape } = require('logo-scrape');
 
 (async () => {
     const url = 'http://bpost.be';
-    const logos = await LogoScrape.getLogo(url);
-    console.log(logos)
+    const logo = await LogoScrape.getLogo(url);
+    const logos = await LogoScrape.getLogos(url);
+    console.log(logo, logos)
 })();
 ```
 
@@ -27,14 +28,15 @@ import { LogoScraper } from 'logo-scrape';
 
 (async () => {
     const url: string = 'http://bpost.be';
-    const logos: string[] = await LogoScrape.getLogo(url);
-    console.log(logos)
+    const logo: string = await LogoScrape.getLogo(url);
+    const logos: string[] = await LogoScrape.getLogos(url);
+    console.log(logo, logos)
 })();
 ```
 
 
 ### API
-The API generated with [TypeDoc](http://typedoc.org/) can be found [here](https://fritzh321.github.io/LogoScraper/).
+The API generated with [TypeDoc](http://typedoc.org/) can be found [here](https://fritzh321.github.io/logo-scrape/).
 
 ## Contributions
 
