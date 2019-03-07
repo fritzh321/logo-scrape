@@ -1,6 +1,9 @@
 # LogoScraper
+[![npm version](https://badge.fury.io/js/logo-scrape.svg)](https://www.npmjs.com/package/logo-scrape)
+
 <hr>
 
+Scrape the logo of any website.
 ## Getting Started
 ### Installation
 ```bash
