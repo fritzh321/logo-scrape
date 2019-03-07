@@ -2,14 +2,32 @@ import cheerio = require('cheerio');
 import { HtmlLoader } from './HtmlLoader';
 
 export class LogoScrape {
-    public static async getLogos(url: string): Promise<string[]> {
+    public async getLogos(url: string): Promise<string[]> {
         if (!this.validUrl(url)) {
             throw new Error(`No valid url found (${url})`);
         }
         return this.fetchLogos(url);
     }
 
-    public static async getLogo(url: string): Promise<string> {
+    public async getLogoUrls(url: string | string[]): string | string[] {
+        if (typeof url !== 'string') {
+            return url.map(async (urlItem: string) => {
+                if (!this.validUrl(urlItem)) {
+                    throw new Error(`No valid url found (${urlItem})`);
+                }
+                const [logo] = await this.fetchLogos(urlItem);
+                return logo;
+            });
+        } else {
+            if (!this.validUrl(url)) {
+                throw new Error(`No valid url found (${url})`);
+            }
+            const [logo] = await this.fetchLogos(url);
+            return logo;
+        }
+    }
+
+    public async getLogo(url: string): Promise<string> {
         if (!this.validUrl(url)) {
             throw new Error(`No valid url found (${url})`);
         }
@@ -17,7 +35,7 @@ export class LogoScrape {
         return logo;
     }
 
-    private static async fetchLogos(url: string): Promise<string[]> {
+    private async fetchLogos(url: string): Promise<string[]> {
         const html = await HtmlLoader.getHTML(url);
         const $ = cheerio.load(html);
 
@@ -37,7 +55,7 @@ export class LogoScrape {
         });
     }
 
-    private static validUrl(url: string): boolean {
+    private validUrl(url: string): boolean {
         const isValidUrl: RegExp = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/;
         return isValidUrl.test(url);
     }
