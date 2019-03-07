@@ -17,6 +17,7 @@
         "@types/cheerio": "^0.22.11",
         "@types/got": "^9.4.1",
         "@types/node": "^11.10.4",
+        "auto-changelog": "^1.11.0",
         "prettier": "1.16.4",
         "release-it": "^10.3.1",
         "ts-node": "^8.0.2",
@@ -33,7 +34,9 @@
         "build": "rm -rf ./dist && tsc",
         "cleandoc": "rm -rf docs/",
         "doc": "npm run cleandoc && typedoc lib/",
-        "release": "release-it"
+        "release": "release-it",
+        "beforeStage": "npx auto-changelog",
+        "changelog": "npx auto-changelog --stdout --commit-limit false --unreleased --template ./preview.hbs"
     },
     "keywords": [
         "logo",
