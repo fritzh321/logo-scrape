@@ -27,7 +27,7 @@
     "scripts": {
         "start-example": "npm run build && tsc --p ./examples && node ./examples/test.js",
         "lint": "tslint -p .",
-        "prepare": "npm run build && npm run doc",
+        "prepare": "npm run lint && npm run build",
         "lint-fix": "tslint -p . --fix",
         "build": "rm -rf ./dist && tsc",
         "cleandoc": "rm -rf docs/",
