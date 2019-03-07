@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "logo-scrape": "file:.."
+  }
+}

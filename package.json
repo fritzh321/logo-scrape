@@ -1,0 +1,43 @@
+{
+    "name": "logo-scrape",
+    "version": "1.0.0",
+    "description": "An website logo scraper",
+    "author": "Fritz Hoste <hoste.fritz@gmail.com>",
+    "main": "dist/index.js",
+    "types": "types/index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/FritzH321/logo-scrape.git"
+    },
+    "dependencies": {
+        "cheerio": "^1.0.0-rc.2",
+        "got": "^9.6.0"
+    },
+    "devDependencies": {
+        "@types/cheerio": "^0.22.11",
+        "@types/got": "^9.4.1",
+        "@types/node": "^11.10.4",
+        "prettier": "1.16.4",
+        "ts-node": "^8.0.2",
+        "tslint": "^5.13.1",
+        "tslint-eslint-rules": "^5.4.0",
+        "typedoc": "^0.14.2",
+        "typescript": "^3.3.3333"
+    },
+    "scripts": {
+        "start-example": "npm run build && tsc --p ./examples && node ./examples/test.js",
+        "lint": "tslint -p .",
+        "prepare": "npm run build && npm run generate-docs",
+        "lint-fix": "tslint -p . --fix",
+        "build": "rm -rf ./dist && tsc",
+        "cleandoc": "rm -rf docs/",
+        "doc": "npm run cleandoc && typedoc lib/"
+    },
+    "keywords": [
+        "logo",
+        "scrape",
+        "company",
+        "website"
+    ],
+    "license": "MIT"
+}

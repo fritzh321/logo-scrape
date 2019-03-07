@@ -1,0 +1,13 @@
+{
+  "target": "ES6",
+  "name": "LogoScrape",
+  "module": "commonjs",
+  "mode": "file",
+  "out": "./docs",
+  "excludeExternals": true,
+  "excludePrivate": true,
+  "excludeNotExported": true,
+  "ignoreCompilerErrors": true,
+  "externalPattern": "node_modules/**",
+  "readme": "none"
+}
