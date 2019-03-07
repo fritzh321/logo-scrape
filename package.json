@@ -26,7 +26,7 @@
         "typescript": "^3.3.3333"
     },
     "scripts": {
-        "start-example": "ts-node ./examples/test.ts",
+        "start-example": "npm run build && ts-node ./examples/test.ts",
         "lint": "tslint -p .",
         "prepare": "npm run lint && npm run build && npm run doc",
         "lint-fix": "tslint -p . --fix",

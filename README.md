@@ -15,11 +15,11 @@
 	</a>
 </p>
 
-<p align="center"><code>LogoScrape</code> scrapes the logo from an provided url for your Node.js applications.</p>
+<p align="center"><code>LogoScrape</code> scrapes the logo from a provided url for your Node.js applications.</p>
 
 ## Installation
 ```bash
-$ npm i logo-scraper
+$ npm i logo-scrape
 ```
 ## Usage
 ### NodeJS

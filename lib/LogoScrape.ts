@@ -3,10 +3,16 @@ import { HtmlLoader } from './HtmlLoader';
 
 export class LogoScrape {
     public static async getLogos(url: string): Promise<string[]> {
+        if (!this.validUrl(url)) {
+            throw new Error(`No valid url found (${url})`);
+        }
         return this.fetchLogos(url);
     }
 
     public static async getLogo(url: string): Promise<string> {
+        if (!this.validUrl(url)) {
+            throw new Error(`No valid url found (${url})`);
+        }
         const [logo] = await this.fetchLogos(url);
         return logo;
     }
@@ -21,8 +27,17 @@ export class LogoScrape {
             $('img[itemprop="logo"]').attr('src'),
             $('link[rel*="icon"]').attr('href'),
             $('img[alt*="logo"]').attr('src'),
-        ];
+        ].filter(e => !!e);
 
-        return logos.filter(e => e);
+        return logos.map((imageLocation: string) => {
+            return !this.validUrl(imageLocation)
+                ? url + imageLocation
+                : imageLocation;
+        });
+    }
+
+    private static validUrl(url: string): boolean {
+        const isValidUrl: RegExp = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/;
+        return isValidUrl.test(url);
     }
 }
