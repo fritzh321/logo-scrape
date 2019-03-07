@@ -28,13 +28,13 @@
     },
     "scripts": {
         "start-example": "npm run build && ts-node ./examples/test.ts",
-        "prepare": "npm run lint && npm run build && npm run doc && npm run beforeStage",
+        "prepare": "npm run lint && npm run build && npm run doc",
         "lint": "tslint -p .",
         "lint-fix": "tslint -p . --fix",
         "build": "rm -rf ./dist && tsc",
         "cleandoc": "rm -rf docs/",
         "doc": "npm run cleandoc && typedoc lib/",
-        "release": "release-it",
+        "release": "release-it"
     },
     "keywords": [
         "logo",
