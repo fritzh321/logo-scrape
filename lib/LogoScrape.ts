@@ -2,11 +2,11 @@ import cheerio = require('cheerio');
 import { HtmlLoader } from './HtmlLoader';
 
 export class LogoScrape {
-    public static async getLogo(url: string): Promise<string[]> {
+    public static async getLogos(url: string): Promise<string[]> {
         return this.fetchLogos(url);
     }
 
-    public static async getLogos(url: string): Promise<string> {
+    public static async getLogo(url: string): Promise<string> {
         const [logo] = await this.fetchLogos(url);
         return logo;
     }
