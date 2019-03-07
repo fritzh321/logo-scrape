@@ -1,6 +1,6 @@
 {
     "name": "logo-scrape",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "An website logo scraper",
     "author": "Fritz Hoste <hoste.fritz@gmail.com>",
     "main": "dist/index.js",
