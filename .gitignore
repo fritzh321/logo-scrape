@@ -3,4 +3,4 @@ node_modules
 dist
 types
 /examples/*.d.ts
-/examples/*/*.js
+/examples/*.js
