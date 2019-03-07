@@ -1,8 +1,9 @@
-<h1 align="center">
-	<img height="150" src="http://fr1tz.be/scraper.svg" alt="Logo Scrape" />
-	<br> Logo Scrape
-</h1>
-
+<p align="center">
+    <h1 align="center">
+        <img height="150" src="http://fr1tz.be/scraper.svg" alt="Logo Scrape" />
+        <br> Logo Scrape
+    </h1>
+</p>
 <p align="center">
   <a href="https://travis-ci.org/FritzH321/logo-scrape">
 		<img src="https://img.shields.io/travis/FritzH321/logo-scrape/master.svg?style=flat-square" alt="Build Status">
