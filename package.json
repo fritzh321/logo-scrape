@@ -28,8 +28,8 @@
     },
     "scripts": {
         "start-example": "npm run build && ts-node ./examples/test.ts",
+        "prepare": "npm run lint && npm run build && npm run doc && npm run beforeStage",
         "lint": "tslint -p .",
-        "prepare": "npm run lint && npm run build && npm run doc",
         "lint-fix": "tslint -p . --fix",
         "build": "rm -rf ./dist && tsc",
         "cleandoc": "rm -rf docs/",
