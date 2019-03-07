@@ -27,6 +27,7 @@ export class LogoScrape {
             $('img[itemprop="logo"]').attr('src'),
             $('link[rel*="icon"]').attr('href'),
             $('img[alt*="logo"]').attr('src'),
+            $('a.navbar-brand img[src*="logo"]').attr('src'),
         ].filter(e => !!e);
 
         return logos.map((imageLocation: string) => {
