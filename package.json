@@ -35,8 +35,6 @@
         "cleandoc": "rm -rf docs/",
         "doc": "npm run cleandoc && typedoc lib/",
         "release": "release-it",
-        "beforeStage": "npx auto-changelog",
-        "changelog": "npx auto-changelog --stdout --commit-limit false --unreleased --template ./preview.hbs"
     },
     "keywords": [
         "logo",

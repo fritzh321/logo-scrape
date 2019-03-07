@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "beforeStart": "npm run prepare,",
+    "beforeStage": "npx auto-changelog",
+  }
+}
