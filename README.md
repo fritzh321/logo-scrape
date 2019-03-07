@@ -1,5 +1,5 @@
 <h1 align="center">
-	<img height="150" src="https://cdn.rawgit.com/FritzH321/logo-scraper/master/logo-scraper.svg" alt="Logo Scrape" />
+	<img height="150" src="http://fr1tz.be/scraper.svg" alt="Logo Scrape" />
 	<br> Logo Scrape
 </h1>
 
@@ -16,10 +16,6 @@
 </p>
 
 <p align="center"><code>LogoScrape</code> scrapes any logo from an url for your Node.js applications.</p>
-
-
-
-<hr>
 
 
 ## Installation
