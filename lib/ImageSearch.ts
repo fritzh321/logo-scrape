@@ -8,19 +8,21 @@ export class ImageSearch {
         const $ = cheerio.load(html);
 
         const logos: string[] = [
-            $('meta[property="og:logo"]').attr('content'),
-            $('meta[itemprop="logo"]').attr('content'),
-            ...$('link[rel*="icon"]').map((i, el) => $(el).attr('href')).get(),
-            $('img[itemprop="logo"]').attr('src'),
-            $('link[rel*="apple-touch-icon"]').attr('href'),
-            $('meta[name*="msapplication-TileImage"]').attr('content'),
-            $('img[alt*="logo"]').attr('src'),
-            $('a.navbar-brand img[src*="logo"]').attr('src'),
-            $('meta[content*="logo"]').attr('content')
-        ].filter(e => !!e).filter((e, i, a) => a.indexOf(e) === i);
+            {type: 'og:logo', url: $('meta[property="og:logo"]').attr('content')},
+            {type: 'meta-itemprop/logo', url: $('meta[itemprop="logo"]').attr('content')},
+             ...$('link[rel*="icon"]').map((i, el) => {
+                 return {type: 'link-rel/icon', url: $(el).attr('href'), size: $(el).attr('sizes')};
+             }).get(),
+            {type: 'img-itemprop/logo', url: $('img[itemprop="logo"]').attr('src')},
+            {type: 'meta-name/msapplication-TileImage', url: $('meta[name*="msapplication-TileImage"]').attr('content')},
+            {type: 'img-alt/logo', url: $('img[alt*="logo"]').attr('src')},
+            {type: 'bootstrap/navbar', url: $('a.navbar-brand img[src*="logo"]').attr('src')},
+            {type: 'meta-content/logo', url: $('meta[content*="logo"]').attr('content')},
+            {type: 'json-ld-logo', url: Helpers.findJsonLdImages($('script[type*="application/ld+json"]').html())}
+        ].filter(e => e.url);
 
-        const correctLogos: string[] = logos.map((imageLocation: string) => {
-            return !Helpers.validUrl(imageLocation) ? url + imageLocation : imageLocation;
+        const correctLogos: string[] = logos.map((image: any) => {
+            return !Helpers.validUrl(image.url) ? {...image, url: url + image.url} : image;
         });
 
         if (showAllImages) {
@@ -29,5 +31,7 @@ export class ImageSearch {
             const [logo] = correctLogos;
             return logo;
         }
+
     }
+
 }

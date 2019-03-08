@@ -1,7 +1,7 @@
 import got = require('got');
 
 export class HtmlLoader {
-    public static async getHTML(targetUrl: string, gzipDeflateBr = 'gzip, deflate, br'): Promise<string> {
+    public static async getHTML(targetUrl: string, gzipDeflateBr: string = 'gzip, deflate, br'): Promise<string> {
         const { body: html } = await got(targetUrl, {
             headers: {
                 'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
