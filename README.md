@@ -14,7 +14,7 @@
 	</a>
 </p>
 
-<p align="center"><code>LogoScrape</code> scrapes the logo from a provided url for your Node.js applications.</p>
+<p align="center"><code>LogoScrape</code> scrapes the logo from a provided url(s) for your Node.js applications.</p>
 
 ## Installation
 ```bash
@@ -31,18 +31,55 @@ const { LogoScrape } = require('logo-scrape');
 import { LogoScrape } from 'logo-scrape';
 ```
 ## Usage
+ `getLogos()` or `getLogos()` accepts a url(s) and returns the output for the provided url(s)
+ 
 ```js
 (async () => {
     const url = 'http://bpost.be';
-    const logo = await LogoScrape.getLogos(url);
+    const logo = await LogoScrape.getLogo(url);
     const logos = await LogoScrape.getLogos(url);
+    console.log({logo, logos});
     
     const urls = ['http://telenet.be' , 'http://bpost.be'];
-    const logoUrls = await LogoScrape.getLogos(urls);
+    const logoUrls = await LogoScrape.getLogo(urls);
     const logosUrls = await LogoScrape.getLogos(urls);
-    console.log(logoUrls, logosUrls)
+    console.log({logoUrls, logosUrls});
 })();
 ```
+
+
+
+Will output below result;
+
+```json
+{
+  logo: 'https://www.bpost.be/sites/all/themes/custom/bpost_selfservice/logo.png',
+  logos: [
+    'https://www.bpost.be/sites/all/themes/custom/bpost_selfservice/logo.png'
+  ]
+}
+```
+
+And for muliple url's
+
+```json
+{
+  logoUrls: [
+    'http://telenet.be/etc/designs/telenet-be/media/icons/apple-touch-icon.png',
+    'https://www.bpost.be/sites/all/themes/custom/bpost_selfservice/logo.png'
+  ],
+  logosUrls: [
+    [
+      'http://telenet.be/etc/designs/telenet-be/media/icons/apple-touch-icon.png',
+      'http://telenet.be/content/dam/www-telenet-be/img/generic/Logos%20&%20Trademarks%20for%20content/ogimage/telenet_headerlogo.svg'
+    ],
+    [
+      'https://www.bpost.be/sites/all/themes/custom/bpost_selfservice/logo.png'
+    ]
+  ]
+}
+```
+
 
 ## API
 The API generated with [TypeDoc](http://typedoc.org/) can be found [here](https://fritzh321.github.io/logo-scrape/).
