@@ -14,7 +14,6 @@
         "curly": false,
         "no-console": false,
         "quotemark": [true, "single"],
-        "object-curly-spacing": true,
         "prefer-object-spread": true
     },
     "rulesDirectory": []

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>HtmlLoader | LogoScrape</title>
+	<title>ImageSearch | LogoScrape</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -52,10 +52,10 @@
 					<a href="../index.html">Globals</a>
 				</li>
 				<li>
-					<a href="htmlloader.html">HtmlLoader</a>
+					<a href="imagesearch.html">ImageSearch</a>
 				</li>
 			</ul>
-			<h1>Class HtmlLoader</h1>
+			<h1>Class ImageSearch</h1>
 		</div>
 	</div>
 </header>
@@ -66,7 +66,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">HtmlLoader</span>
+						<span class="target">ImageSearch</span>
 					</li>
 				</ul>
 			</section>
@@ -77,7 +77,7 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="htmlloader.html#gethtml" class="tsd-kind-icon">getHTML</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="imagesearch.html#findimages" class="tsd-kind-icon">find<wbr>Images</a></li>
 							</ul>
 						</section>
 					</div>
@@ -86,25 +86,28 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<a name="gethtml" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> getHTML</h3>
+					<a name="findimages" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> find<wbr>Images</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">getHTML<span class="tsd-signature-symbol">(</span>targetUrl<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">find<wbr>Images<span class="tsd-signature-symbol">(</span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, showAllImages<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/FritzH321/logo-scrape/blob/64726a1/lib/HtmlLoader.ts#L4">HtmlLoader.ts:4</a></li>
+									<li>Defined in <a href="https://github.com/FritzH321/logo-scrape/blob/64726a1/lib/ImageSearch.ts#L6">ImageSearch.ts:6</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>targetUrl: <span class="tsd-signature-type">string</span></h5>
+									<h5>url: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> showAllImages: <span class="tsd-signature-type">boolean</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -123,21 +126,21 @@
 					<li class=" tsd-kind-class">
 						<a href="helpers.html" class="tsd-kind-icon">Helpers</a>
 					</li>
+					<li class=" tsd-kind-class">
+						<a href="htmlloader.html" class="tsd-kind-icon">Html<wbr>Loader</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="htmlloader.html" class="tsd-kind-icon">Html<wbr>Loader</a>
+						<a href="imagesearch.html" class="tsd-kind-icon">Image<wbr>Search</a>
 						<ul>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-								<a href="htmlloader.html#gethtml" class="tsd-kind-icon">getHTML</a>
+								<a href="imagesearch.html#findimages" class="tsd-kind-icon">find<wbr>Images</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-class">
-						<a href="imagesearch.html" class="tsd-kind-icon">Image<wbr>Search</a>
-					</li>
 					<li class=" tsd-kind-class">
 						<a href="logoscrape.html" class="tsd-kind-icon">Logo<wbr>Scrape</a>
 					</li>

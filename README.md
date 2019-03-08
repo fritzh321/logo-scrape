@@ -20,28 +20,27 @@
 ```bash
 $ npm i logo-scrape
 ```
-## Usage
+## Import
 ### NodeJS
 ```js
 const { LogoScrape } = require('logo-scrape');
-
-(async () => {
-    const url = 'http://bpost.be';
-    const logo = await LogoScrape.getLogo(url);
-    const logos = await LogoScrape.getLogos(url);
-    console.log(logo, logos)
-})();
 ```
 
 ### TypeScript
 ```ts
 import { LogoScrape } from 'logo-scrape';
-
+```
+## Usage
+```js
 (async () => {
-    const url: string = 'http://bpost.be';
-    const logo: string = await LogoScrape.getLogo(url);
-    const logos: string[] = await LogoScrape.getLogos(url);
-    console.log(logo, logos)
+    const url = 'http://bpost.be';
+    const logo = await LogoScrape.getLogos(url);
+    const logos = await LogoScrape.getLogos(url);
+    
+    const urls = ['http://telenet.be' , 'http://bpost.be'];
+    const logoUrls = await LogoScrape.getLogos(urls);
+    const logosUrls = await LogoScrape.getLogos(urls);
+    console.log(logoUrls, logosUrls)
 })();
 ```
 
