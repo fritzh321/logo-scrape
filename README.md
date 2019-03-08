@@ -35,12 +35,12 @@ import { LogoScrape } from 'logo-scrape';
  
 ```js
 (async () => {
-    const url = 'http://bpost.be';
+    const url = 'http://techcrunch.com';
     const logo = await LogoScrape.getLogo(url);
     const logos = await LogoScrape.getLogos(url);
     console.log({logo, logos});
     
-    const urls = ['http://telenet.be' , 'http://bpost.be'];
+    const urls = ['http://techcrunch.com' , 'http://producthunt.com'];
     const logoUrls = await LogoScrape.getLogo(urls);
     const logosUrls = await LogoScrape.getLogos(urls);
     console.log({logoUrls, logosUrls});
@@ -53,9 +53,12 @@ Will output below result;
 
 ```console
 {
-  logo: 'https://www.bpost.be/sites/all/themes/custom/bpost_selfservice/logo.png',
+  logo: 'https://techcrunch.com/wp-content/uploads/2015/02/cropped-cropped-favicon-gradient.png?w=32',
   logos: [
-    'https://www.bpost.be/sites/all/themes/custom/bpost_selfservice/logo.png'
+    'https://techcrunch.com/wp-content/uploads/2015/02/cropped-cropped-favicon-gradient.png?w=32',
+    'https://techcrunch.com/wp-content/uploads/2015/02/cropped-cropped-favicon-gradient.png?w=192',
+    'https://techcrunch.com/wp-content/uploads/2015/02/cropped-cropped-favicon-gradient.png?w=180',
+    'https://techcrunch.com/wp-content/uploads/2015/02/cropped-cropped-favicon-gradient.png?w=270'
   ]
 }
 ```
@@ -65,16 +68,19 @@ And for multiple url's
 ```console
 {
   logoUrls: [
-    'http://telenet.be/etc/designs/telenet-be/media/icons/apple-touch-icon.png',
-    'https://www.bpost.be/sites/all/themes/custom/bpost_selfservice/logo.png'
+    'https://techcrunch.com/wp-content/uploads/2015/02/cropped-cropped-favicon-gradient.png?w=32',
+    'https://assets.producthunt.com/assets/ph-ios-icon-e1733530a1bfc41080db8161823f1ef262cdbbc933800c0a2a706f70eb9c277a.png'
   ],
   logosUrls: [
     [
-      'http://telenet.be/etc/designs/telenet-be/media/icons/apple-touch-icon.png',
-      'http://telenet.be/content/dam/www-telenet-be/img/generic/Logos%20&%20Trademarks%20for%20content/ogimage/telenet_headerlogo.svg'
+      'https://techcrunch.com/wp-content/uploads/2015/02/cropped-cropped-favicon-gradient.png?w=32',
+      'https://techcrunch.com/wp-content/uploads/2015/02/cropped-cropped-favicon-gradient.png?w=192',
+      'https://techcrunch.com/wp-content/uploads/2015/02/cropped-cropped-favicon-gradient.png?w=180',
+      'https://techcrunch.com/wp-content/uploads/2015/02/cropped-cropped-favicon-gradient.png?w=270'
     ],
     [
-      'https://www.bpost.be/sites/all/themes/custom/bpost_selfservice/logo.png'
+      'https://assets.producthunt.com/assets/ph-ios-icon-e1733530a1bfc41080db8161823f1ef262cdbbc933800c0a2a706f70eb9c277a.png',
+      'http://producthunt.com/favicon.ico'
     ]
   ]
 }

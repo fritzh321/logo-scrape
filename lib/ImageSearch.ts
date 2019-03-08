@@ -10,8 +10,8 @@ export class ImageSearch {
         const logos: string[] = [
             $('meta[property="og:logo"]').attr('content'),
             $('meta[itemprop="logo"]').attr('content'),
-            $('img[itemprop="logo"]').attr('src'),
             ...$('link[rel*="icon"]').map((i, el) => $(el).attr('href')).get(),
+            $('img[itemprop="logo"]').attr('src'),
             $('link[rel*="apple-touch-icon"]').attr('href'),
             $('meta[name*="msapplication-TileImage"]').attr('content'),
             $('img[alt*="logo"]').attr('src'),
