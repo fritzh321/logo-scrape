@@ -60,7 +60,7 @@ Will output below result;
 }
 ```
 
-And for muliple url's
+And for multiple url's
 
 ```js
 {
