@@ -16,6 +16,7 @@ export class ImageSearch {
             $('meta[name*="msapplication-TileImage"]').attr('content'),
             $('img[alt*="logo"]').attr('src'),
             $('a.navbar-brand img[src*="logo"]').attr('src'),
+            $('meta[content*="logo"]').attr('content')
         ].filter(e => !!e).filter((e, i, a) => a.indexOf(e) === i);
 
         const correctLogos: string[] = logos.map((imageLocation: string) => {
