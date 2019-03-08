@@ -51,7 +51,7 @@ import { LogoScrape } from 'logo-scrape';
 
 Will output below result;
 
-```json
+```js
 {
   logo: 'https://www.bpost.be/sites/all/themes/custom/bpost_selfservice/logo.png',
   logos: [
@@ -62,7 +62,7 @@ Will output below result;
 
 And for muliple url's
 
-```json
+```js
 {
   logoUrls: [
     'http://telenet.be/etc/designs/telenet-be/media/icons/apple-touch-icon.png',
