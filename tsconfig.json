@@ -12,7 +12,7 @@
     ],
     "noImplicitAny": false,
     "noImplicitThis": true,
-    "strictNullChecks": true,
+    "strictNullChecks": false,
     "strictFunctionTypes": true,
     "noEmit": false,
     "emitDecoratorMetadata": true,

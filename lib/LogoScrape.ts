@@ -1,62 +1,40 @@
-import cheerio = require('cheerio');
-import { HtmlLoader } from './HtmlLoader';
+import { Helpers } from './Helpers';
+import { ImageSearch } from './ImageSearch';
 
 export class LogoScrape {
-    public async getLogos(url: string): Promise<string[]> {
-        if (!this.validUrl(url)) {
-            throw new Error(`No valid url found (${url})`);
-        }
-        return this.fetchLogos(url);
-    }
-
-    public async getLogoUrls(url: string | string[]): string | string[] {
+    public static async getLogo(url: string | string[]): Promise<any> {
         if (typeof url !== 'string') {
-            return url.map(async (urlItem: string) => {
-                if (!this.validUrl(urlItem)) {
-                    throw new Error(`No valid url found (${urlItem})`);
-                }
-                const [logo] = await this.fetchLogos(urlItem);
-                return logo;
-            });
+            return Promise.all(
+                url.map((urlItem: string) => {
+                    if (!Helpers.validUrl(urlItem)) {
+                        throw new Error(`No valid url found (${urlItem})`);
+                    }
+                    return ImageSearch.findImages(urlItem);
+                })
+            );
         } else {
-            if (!this.validUrl(url)) {
+            if (!Helpers.validUrl(url)) {
                 throw new Error(`No valid url found (${url})`);
             }
-            const [logo] = await this.fetchLogos(url);
-            return logo;
+            return ImageSearch.findImages(url);
         }
     }
 
-    public async getLogo(url: string): Promise<string> {
-        if (!this.validUrl(url)) {
-            throw new Error(`No valid url found (${url})`);
+    public static async getLogos(url: string | string[]): Promise<any> {
+        if (typeof url !== 'string') {
+            return Promise.all(
+                url.map((urlItem: string) => {
+                    if (!Helpers.validUrl(urlItem)) {
+                        throw new Error(`No valid url found (${urlItem})`);
+                    }
+                    return ImageSearch.findImages(urlItem, true);
+                })
+            );
+        } else {
+            if (!Helpers.validUrl(url)) {
+                throw new Error(`No valid url found (${url})`);
+            }
+            return ImageSearch.findImages(url, true);
         }
-        const [logo] = await this.fetchLogos(url);
-        return logo;
-    }
-
-    private async fetchLogos(url: string): Promise<string[]> {
-        const html = await HtmlLoader.getHTML(url);
-        const $ = cheerio.load(html);
-
-        const logos: string[] = [
-            $('meta[property="og:logo"]').attr('content'),
-            $('meta[itemprop="logo"]').attr('content'),
-            $('img[itemprop="logo"]').attr('src'),
-            $('link[rel*="icon"]').attr('href'),
-            $('img[alt*="logo"]').attr('src'),
-            $('a.navbar-brand img[src*="logo"]').attr('src'),
-        ].filter(e => !!e);
-
-        return logos.map((imageLocation: string) => {
-            return !this.validUrl(imageLocation)
-                ? url + imageLocation
-                : imageLocation;
-        });
-    }
-
-    private validUrl(url: string): boolean {
-        const isValidUrl: RegExp = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/;
-        return isValidUrl.test(url);
     }
 }
