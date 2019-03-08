@@ -11,10 +11,12 @@ export class ImageSearch {
             $('meta[property="og:logo"]').attr('content'),
             $('meta[itemprop="logo"]').attr('content'),
             $('img[itemprop="logo"]').attr('src'),
-            $('link[rel*="icon"]').attr('href'),
+            ...$('link[rel*="icon"]').map((i, el) => $(el).attr('href')).get(),
+            $('link[rel*="apple-touch-icon"]').attr('href'),
+            $('meta[name*="msapplication-TileImage"]').attr('content'),
             $('img[alt*="logo"]').attr('src'),
             $('a.navbar-brand img[src*="logo"]').attr('src'),
-        ].filter(e => !!e);
+        ].filter(e => !!e).filter((e, i, a) => a.indexOf(e) === i);
 
         const correctLogos: string[] = logos.map((imageLocation: string) => {
             return !Helpers.validUrl(imageLocation) ? url + imageLocation : imageLocation;
