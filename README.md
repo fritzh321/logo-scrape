@@ -31,7 +31,7 @@ const { LogoScrape } = require('logo-scrape');
 import { LogoScrape } from 'logo-scrape';
 ```
 ## Usage
- `getLogos()` or `getLogos()` accepts a url(s) and returns the output for the provided url(s)
+ `getLogo()` or `getLogos()` accepts a url(s) and returns the output for the provided url(s)
  
 ```js
 (async () => {
