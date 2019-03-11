@@ -4,8 +4,9 @@ import { HtmlLoader } from './HtmlLoader';
 
 export class ImageSearch {
     public static async findImages(url: string, showAllImages?: boolean): Promise<string | string[]> {
-        const html = await HtmlLoader.getHTML(url);
-        const $ = cheerio.load(html);
+        const response = await HtmlLoader.getHTML(url);
+        const $ = cheerio.load(response.html);
+
 
         const logos: string[] = [
             {type: 'og:logo', url: $('meta[property="og:logo"]').attr('content')},
@@ -15,14 +16,17 @@ export class ImageSearch {
              }).get(),
             {type: 'img-itemprop/logo', url: $('img[itemprop="logo"]').attr('src')},
             {type: 'meta-name/msapplication-TileImage', url: $('meta[name*="msapplication-TileImage"]').attr('content')},
-            {type: 'img-alt/logo', url: $('img[alt*="logo"]').attr('src')},
-            {type: 'bootstrap/navbar', url: $('a.navbar-brand img[src*="logo"]').attr('src')},
             {type: 'meta-content/logo', url: $('meta[content*="logo"]').attr('content')},
-            {type: 'json-ld-logo', url: Helpers.findJsonLdImages($('script[type*="application/ld+json"]').html())}
+            {type: 'meta-content/image', url: $('meta[itemprop*="image"]').attr('content')},
+            {type: 'json-ld-logo', url: Helpers.findJsonLdImages($('script[type*="application/ld+json"]').html())},
+            {type: 'img-alt/logo', url: $('img[alt*="logo"]').attr('src')},
+            {type: 'img-src/logo', url: $('img[src*="logo"]').attr('src')},
+            {type: 'bootstrap/navbar', url: $('a.navbar-brand img[src*="logo"]').attr('src')},
         ].filter(e => e.url);
 
+
         const correctLogos: string[] = logos.map((image: any) => {
-            return !Helpers.validUrl(image.url) ? {...image, url: url + image.url} : image;
+            return !Helpers.validUrl(image.url) ? {...image, url: response.url + image.url} : image;
         });
 
         if (showAllImages) {
