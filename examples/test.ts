@@ -4,10 +4,10 @@ import { LogoScrape } from 'logo-scrape';
     const url = 'http://techcrunch.com';
     const logo = await LogoScrape.getLogo(url);
     const logos = await LogoScrape.getLogos(url);
-    console.log(JSON.stringify({logo, logos}));
+    console.log({logo, logos});
 
     const urls = ['http://techcrunch.com' , 'http://producthunt.com'];
     const logoUrls = await LogoScrape.getLogo(urls);
     const logosUrls = await LogoScrape.getLogos(urls);
-    console.log(JSON.stringify({logoUrls, logosUrls}));
+    console.log({logoUrls, logosUrls});
 })();
