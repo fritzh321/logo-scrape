@@ -41,7 +41,13 @@
         "logo",
         "scrape",
         "company",
-        "website"
+        "website",
+        "image",
+        "crawl",
+        "fetch",
+        "opengraph",
+        "icon",
+        "favicon"
     ],
     "license": "MIT"
 }
