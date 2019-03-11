@@ -10,7 +10,7 @@ export class Helpers {
     }
 
     public static svgToDataURL(svgStr: string) {
-        if (svgStr.indexOf('svg')) {
+        if (svgStr.indexOf('svg') && svgStr.indexOf('href') === -1) {
             const encoded = encodeURIComponent(svgStr)
                 .replace(/'/g, '%27')
                 .replace(/"/g, '%22');
