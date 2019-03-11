@@ -8,4 +8,20 @@ export class Helpers {
         const info = JSON.parse(text);
         return info ? info.logo : null;
     }
+
+    public static svgToDataURL(svgStr: string) {
+        if (svgStr.indexOf('svg')) {
+            const encoded = encodeURIComponent(svgStr)
+                .replace(/'/g, '%27')
+                .replace(/"/g, '%22');
+
+            const header = 'data:image/svg+xml,';
+            const dataUrl = header + encoded;
+
+            return dataUrl;
+        } else {
+            return null;
+        }
+
+    }
 }
