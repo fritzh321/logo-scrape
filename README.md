@@ -20,6 +20,19 @@
 <p align="center"><code>LogoScrape</code> scrapes the logo from a provided url(s) for your Node.js applications.</p>
 <p align="center">Checkout the <a href="https://runkit.com/embed/h566z62zd1qx">demo</a> to see it in action!</p>
 
+## Table of Contents
+
+<details><summary>Click to expand</summary>
+
+- [Installation](#installation)
+- [Import](#import)
+- [Usage](#usage)
+- [API](#api)
+- [Demo](#demo)
+- [License](#license)
+
+</details>
+
 ## Installation
 ```bash
 $ npm i logo-scrape
@@ -161,7 +174,7 @@ The API generated with [TypeDoc](http://typedoc.org/) can be found [here](https:
 	<img src="https://badge.runkitcdn.com/logo-scrape.svg" alt="Try logo-scrape on RunKit"/>
 </a>
 
-## Contributions
+## Contributing
 
 Feel free to submit pull requests, create issues or spread the word.
 
