@@ -1,7 +1,7 @@
 {
     "name": "logo-scrape",
     "version": "1.1.0",
-    "description": "An website logo scraper",
+    "description": "Scrapes/Crawls the logo from a provided url(s)/website for your Node.js applications.",
     "author": "Fritz Hoste <hoste.fritz@gmail.com>",
     "main": "dist/index.js",
     "types": "types/index.d.ts",
