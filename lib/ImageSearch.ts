@@ -2,7 +2,7 @@ import cheerio = require('cheerio');
 import { Helpers } from './Helpers';
 import { HtmlLoader } from './HtmlLoader';
 
-interface ImageData {
+export interface ImageData {
     type: string;
     size?: string;
     url: string;

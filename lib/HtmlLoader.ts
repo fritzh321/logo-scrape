@@ -21,7 +21,7 @@ export class HtmlLoader {
 
         return {
             html,
-            url: hostUrl.substring(0, hostUrl.lastIndexOf('/')),
+            url: hostUrl.substring(0, hostUrl.lastIndexOf('/') + 1),
         };
     }
 }

@@ -5,7 +5,7 @@ export class LogoScrape {
     public static async getLogo(url: string | string[]): Promise<any> {
         if (typeof url !== 'string') {
             return Promise.all(
-                url.map((urlItem: string) => {
+                url.map((urlItem: any) => {
                     if (!Helpers.validUrl(urlItem)) {
                         throw new Error(`No valid url found (${urlItem})`);
                     }
