@@ -12,9 +12,13 @@
 	<a href="https://github.com/fritzh321/logo-scrape">
 		<img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square" alt="Software License">
 	</a>
+	<a href="https://npm.runkit.com/logo-scrape">
+    	<img src="https://badge.runkitcdn.com/logo-scrape.svg" alt="Try logo-scrape on RunKit"/>
+    </a>
 </p>
 
 <p align="center"><code>LogoScrape</code> scrapes the logo from a provided url(s) for your Node.js applications.</p>
+<p align="center">Checkout the <a href="https://runkit.com/embed/h566z62zd1qx">demo</a> to see it in action!</p>
 
 ## Installation
 ```bash
