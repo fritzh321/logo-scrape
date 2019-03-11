@@ -152,6 +152,11 @@ And for multiple url's
 ## API
 The API generated with [TypeDoc](http://typedoc.org/) can be found [here](https://fritzh321.github.io/logo-scrape/).
 
+## Demo
+<a href="https://runkit.com/embed/h566z62zd1qx">
+	<img src="https://badge.runkitcdn.com/logo-scrape.svg" alt="Try logo-scrape on RunKit"/>
+</a>
+
 ## Contributions
 
 Feel free to submit pull requests, create issues or spread the word.
