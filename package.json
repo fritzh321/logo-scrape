@@ -32,7 +32,7 @@
         "lint": "tslint -p .",
         "lint-fix": "tslint -p . --fix",
         "build": "node clean-dist.js && tsc",
-        "cleandoc": "rm -rf docs/",
+        "cleandoc": "node clean-docs.js",
         "doc": "npm run cleandoc && typedoc lib/",
         "release": "release-it",
         "before-stage": "npx auto-changelog"
