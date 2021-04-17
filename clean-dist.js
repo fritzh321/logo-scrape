@@ -1,17 +1,8 @@
-const fs = require("fs");
-const path = require("path");
+const fs = require("fs").promises;
 
 const directory = "dist";
 
 try {
-  fs.readdir(directory, (err, files) => {
-    if (err) return;
-    for (const file of files) {
-      fs.unlink(path.join(directory, file), err => {
-        if (err) return;
-      });
-    }
-  });
-
+  fs.rmdir(directory, { recursive: true });
 } catch (e) {
 }
