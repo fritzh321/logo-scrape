@@ -31,8 +31,8 @@
         "prepare": "npm run lint && npm run build && npm run doc && npm run before-stage",
         "lint": "tslint -p .",
         "lint-fix": "tslint -p . --fix",
-        "build": "rm -rf ./dist && tsc",
-        "cleandoc": "rm -rf docs/",
+        "build": "node clean-dist.js && tsc",
+        "cleandoc": "node clean-docs.js",
         "doc": "npm run cleandoc && typedoc lib/",
         "release": "release-it",
         "before-stage": "npx auto-changelog"

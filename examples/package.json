@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "logo-scrape": "file:.."
+  },
+  "scripts": {
+    "start" : "tsc && node dist/examples/test.js"
   }
 }
