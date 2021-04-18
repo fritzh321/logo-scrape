@@ -5,6 +5,7 @@
     "declaration": true,
     "types": ["node"],
     "strict": true,
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "outDir": "dist"
   }
 }
