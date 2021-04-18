@@ -37,7 +37,6 @@ export class Helpers {
   }
 
   public static concatUrl(host: string, path: string): string {
-    console.log(host, path);
     host = host.trim().replace(/^\/+|\/+$/g, '');
     const hostUrl = new URL(host);
     if (path[0] + path[1] === '//') {
@@ -54,8 +53,6 @@ export class Helpers {
       slices.splice(-1, 1);
     }
     const nPath: string = slices.join('/');
-    console.log(nPath);
-    console.log(hostUrl.protocol + '//' + hostUrl.hostname + '/' + nPath + '/' + path);
     return hostUrl.protocol + '//' + hostUrl.hostname + '/' + nPath + '/' + path;
   }
 }
