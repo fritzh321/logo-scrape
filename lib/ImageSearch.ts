@@ -12,7 +12,7 @@ export interface ImageData {
 export class ImageSearch {
   public static async findImages(url: string, showAllImages?: boolean): Promise<ImageData | ImageData[]> {
     const response = await HtmlLoader.getHTML(url);
-    const $ = cheerio.load(response.html.toLowerCase(), { lowerCaseTags: true, lowerCaseAttributeNames: true });
+    const $ = cheerio.load(response.html, { lowerCaseTags: true, lowerCaseAttributeNames: true });
 
     const logos: string[] = [
       { type: 'og:logo', url: $('meta[property="og:logo"]').attr('content') },
@@ -37,9 +37,9 @@ export class ImageSearch {
       { type: 'img-alt/logo', url: $('img[alt*="logo"]').attr('src') },
       { type: 'img-alt/logo-class', url: $('img[class*="logo"]').attr('src') },
       { type: 'img-src/logo', url: $('img[src*="logo"]').attr('src') },
-      { type: 'og:image', url: $('meta[property="og:image"]').attr('content') }
+      { type: 'og:image', url: $('meta[property="og:image"]').attr('content') },
       // { type: 'svg:image', data: true, url: Helpers.svgToDataURL($('a[class*="logo"]').html()) },
-      // { type: 'svg:content', passChecking: true, content: $('svg[class*="logo"]').parent().contents().html()}
+      { type: 'svg:content', passChecking: true, content: this.grabSvgContent($) }
     ].filter(e => e.url || e.content);
     const correctLogos: ImageData[] = logos.map((image: any) => {
       return !Helpers.validUrl(image.url) &&
@@ -54,5 +54,11 @@ export class ImageSearch {
       const [logo] = correctLogos;
       return logo;
     }
+  }
+
+  private static grabSvgContent($: CheerioStatic): string | null {
+    const svg: Cheerio = $('svg[class*="logo"]');
+    if (svg.html() === null) return null;
+    return `<svg xmlns="${svg.attr('xmlns')}" viewBox="${svg.attr('viewBox')}" class="${svg.attr('class')}">${svg.html()}</svg>`;
   }
 }
