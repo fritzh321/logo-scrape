@@ -6,6 +6,6 @@
     "types": ["node"],
     "strict": true,
     "noImplicitAny": false,
-    "outDir": "./dist"
+    "outDir": "dist"
   }
 }
