@@ -1,4 +1,4 @@
-import { LogoScrape } from 'logo-scrape';
+import { LogoScrape } from '../lib';
 
 (async () => {
     const url = 'http://producthunt.com';
